@@ -1,1 +1,34 @@
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="border p-2 shadow rounded">
+                <input type="search" name="" id="" class="mb-3" [(ngModel)]="searchText" placeholder="Search">
+                <h4>Filter</h4>
+                <div *ngFor="let option of options">
+                    <h5>{{option.title}}</h5>
+                    <label *ngFor="let data of option.data" class="d-block w-100">
+                        <input *ngIf="data.name!=='published'" type="checkbox"
+                        name="options"
+                        class="mr-2"
+                        value="{{data.value}}"
+                        [(ngModel)]="data.checked"
+                        (change)="onFilter()"/>
+                        <input *ngIf="data.name==='published'" type="date"
+                        name="options"
+                        value="{{data.value}}"
+                        [(ngModel)]="date"
+                        (change)="onFilter()"/>
+                        <span *ngIf="data.name!=='published'">{{data.name}}</span>
+                    </label>
+                </div>    
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let card of displayCards | filter:searchText">
+                    <app-book-details [data]="card"></app-book-details>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

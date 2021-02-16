@@ -9,16 +9,111 @@ export class BooksjsonService {
 
   getData(){
     return [
-      {name: 'book1', cost:40, pageCount:200},
-      {name: 'book2', cost:50, pageCount:340},
-      {name: 'book3', cost:70, pageCount:450},
-      {name: 'book4', cost:20, pageCount:260},
-      {name: 'book5', cost:80, pageCount:240},
-      {name: 'book6', cost:80, pageCount:200},
-      {name: 'book7', cost:35, pageCount:780},
-      {name: 'book8', cost:68, pageCount:600},
-      {name: 'book9', cost:29, pageCount:137},
-    ]
+      {
+        name: "book1",
+        profile: [
+          {
+            type:"book",
+            name: "book1"
+          },
+          {
+            type: "author",
+            name: "Krishna"
+          },
+          {
+            type: "published",
+            name: "2021-02-15"
+          }
+        ]
+      },
+      {
+        name: "book2",
+        profile: [
+          {
+            type:"book",
+            name: "book2"
+          },
+          {
+            type: "author",
+            name: "Chethan"
+          },
+          {
+            type: "published",
+            name: "2021-02-09"
+          }
+        ]
+      },
+      {
+        name: "book3",
+        profile: [
+          {
+            type:"book",
+            name: "book3"
+          },
+          {
+            type: "author",
+            name: "Hemanth"
+          },
+          {
+            type: "published",
+            name: "2021-02-10"
+          }
+        ]
+      },
+      {
+        name: "book4",
+        profile: [
+          {
+            type:"book",
+            name:"book4"
+          },
+          {
+            type: "author",
+            name: "Rama"
+          },
+          {
+            type: "published",
+            name: "2021-02-16"
+          }
+        ]
+      },
+      {
+        name: "book5",
+        profile: [
+          {
+            type:"book",
+            name: "book5"
+          },
+          {
+            type: "author",
+            name: "Rama"
+          },
+          {
+            type: "published",
+            name: "2021-02-10"
+          }
+        ]
+      },
+      {
+        name: "book6",
+        profile: [
+          {
+            type:"book",
+            name: "book6"
+          },
+          {
+            type: "author",
+            name: "Hemanth"
+          },
+          {
+            type: "published",
+            name: "2021-02-10"
+          }
+        ]
+      }
+    ];
+    
+
   }
 
 }
