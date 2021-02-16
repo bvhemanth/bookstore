@@ -7,19 +7,21 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
-import { MultifilterPipe } from './pipes/multifilter.pipe';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     BookDetailsComponent,
     FilterPipe,
-    MultifilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxsModule.forRoot([]),
+    NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

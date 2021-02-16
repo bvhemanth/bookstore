@@ -1,0 +1,12 @@
+input{
+    outline: none;
+    border:1px solid;
+}
+.filters{
+    background-image: linear-gradient(#6da8bb, #6da8bb, #6096a8);
+    &__label{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

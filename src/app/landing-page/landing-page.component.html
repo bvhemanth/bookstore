@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="border p-2 shadow rounded mb-5">
-                <input type="search" name="" id="" class="mb-3" [(ngModel)]="searchText" placeholder="Search">
+            <div class="border p-2 shadow rounded mb-5 filters">
+                <input type="search" name="" id="" class="mb-3 rounded" [(ngModel)]="searchText" placeholder="Search">
                 <h4>Filter</h4>
                 <div *ngFor="let option of options">
                     <h5>{{option.title}}</h5>
@@ -16,9 +16,10 @@
                         <input *ngIf="data.name==='published'" type="date"
                         name="options"
                         value="{{data.value}}"
+                        class="rounded"
                         [(ngModel)]="date"
                         (change)="onFilter()"/>
-                        <span *ngIf="data.name!=='published'">{{data.name}}</span>
+                        <span *ngIf="data.name!=='published'" class="filters__label text-capitalize">{{data.name}}</span>
                     </label>
                 </div>    
             </div>

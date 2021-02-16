@@ -60,7 +60,6 @@ describe('LandingPageComponent', () => {
       ];
     expect(component).toBeTruthy();
   });
-
 });
 
 
