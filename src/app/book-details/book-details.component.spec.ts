@@ -16,6 +16,20 @@ describe('BookDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BookDetailsComponent);
     component = fixture.componentInstance;
+    component.data = {name:'book1',
+      prfile:[{
+        type:"book",
+        name: "book1"
+      },
+      {
+        type: "author",
+        name: "Krishna"
+      },
+      {
+        type: "published",
+        name: "2021-02-15"
+      }]
+    };
     fixture.detectChanges();
   });
 

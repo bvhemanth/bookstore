@@ -3,8 +3,7 @@ import { BooksjsonService } from '../services/booksjson.service';
 
 interface booksDetails{
   name?;
-  cost?;
-  pageCount?;
+  profile?
 }
 @Component({
   selector: 'app-landing-page',
