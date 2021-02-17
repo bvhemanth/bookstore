@@ -61,13 +61,15 @@ export class LandingPageComponent implements OnInit {
     let localCount=localStorage.getItem("count");
     if(localState){
       this.options=JSON.parse(localState);
-      this.onFilter()
     }
     if(localDate){
       this.date=localDate;
     }
     if(localCount){
-      this.date=localCount;
+      this.count=localCount;
+    }
+    if(localState || localDate || localCount){
+      this.onFilter()
     }
   }
 
