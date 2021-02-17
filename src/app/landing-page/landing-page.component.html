@@ -7,19 +7,26 @@
                 <div *ngFor="let option of options">
                     <h5>{{option.title}}</h5>
                     <label *ngFor="let data of option.data" class="d-block w-100">
-                        <input *ngIf="data.name!=='published'" type="checkbox"
+                        <input *ngIf="data.name!=='published' && data.name!=='count'" type="checkbox"
                         name="options"
                         class="mr-2"
                         value="{{data.value}}"
                         [(ngModel)]="data.checked"
                         (change)="onFilter()"/>
+                        
+                        <input *ngIf="data.name==='count'" type="text"
+                        name="options"
+                        value="{{data.value}}"
+                        class="rounded"
+                        [(ngModel)]="count"
+                        (ngModelChange)="onFilter()"/>
                         <input *ngIf="data.name==='published'" type="date"
                         name="options"
                         value="{{data.value}}"
                         class="rounded"
                         [(ngModel)]="date"
                         (change)="onFilter()"/>
-                        <span *ngIf="data.name!=='published'" class="filters__label text-capitalize">{{data.name}}</span>
+                        <span *ngIf="data.name!=='published' && data.name!=='count'" class="filters__label text-capitalize">{{data.name}}</span>
                     </label>
                 </div>    
             </div>

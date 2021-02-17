@@ -20,7 +20,7 @@ export class LandingPageComponent implements OnInit {
   searchText='';
   filter={}
   date;
-
+  count;
 
   options = [
     {
@@ -44,6 +44,10 @@ export class LandingPageComponent implements OnInit {
       ]
     },
     {
+      title: "Page Count",
+      data: [{ name: "count", value: "0", checked: false }]
+    },
+    {
       title: "Published Date",
       data: [{ name: "published", value: "2021-02-15", checked: false }]
     }
@@ -62,12 +66,16 @@ export class LandingPageComponent implements OnInit {
     this.displayCards =this.booksData;
     let localState=localStorage.getItem("filters");
     let localDate=localStorage.getItem("date");
+    let localCount=localStorage.getItem("count");
     if(localState){
       this.options=JSON.parse(localState);
       this.onFilter()
     }
     if(localDate){
       this.date=localDate;
+    }
+    if(localCount){
+      this.date=localCount;
     }
   }
 
@@ -90,10 +98,16 @@ export class LandingPageComponent implements OnInit {
       checked++;
       data.push(this.date);
     }
+    if(this.count){
+      checked++;
+      data.push(this.count);
+    }
+    console.log(data);
     if(checked)
     {
       localStorage.setItem("filters",JSON.stringify(this.options));
       localStorage.setItem("date", this.date);
+      localStorage.setItem("count", this.count);
       this.displayCards =  this.onFilterprocess(data)
     }
     else{
@@ -103,6 +117,7 @@ export class LandingPageComponent implements OnInit {
   }
 
     onFilterprocess(checkedValues) {
+      console.log(checkedValues);
      return this.cards.filter(card => {
       return card.profile
         .map(p => p.name)

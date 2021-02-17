@@ -23,7 +23,11 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-15"
-          }
+          },
+          {
+            type: "count",
+            name: "100"
+          },
         ]
       },
       {
@@ -40,7 +44,11 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-09"
-          }
+          },
+          {
+            type: "count",
+            name: "300"
+          },
         ]
       },
       {
@@ -57,7 +65,11 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-10"
-          }
+          },
+          {
+            type: "count",
+            name: "150"
+          },
         ]
       },
       {
@@ -74,7 +86,11 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-16"
-          }
+          },
+          {
+            type: "count",
+            name: "90"
+          },
         ]
       },
       {
@@ -91,6 +107,10 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-10"
+          },
+          {
+            type: "count",
+            name: "100"
           }
         ]
       },
@@ -108,6 +128,10 @@ export class BooksjsonService {
           {
             type: "published",
             name: "2021-02-10"
+          },
+          {
+            type: "count",
+            name: "100"
           }
         ]
       }
