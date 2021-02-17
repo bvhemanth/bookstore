@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BooksjsonService } from '../services/booksjson.service';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { By } from '@angular/platform-browser';
 
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
@@ -54,12 +55,63 @@ describe('LandingPageComponent', () => {
             {
               type: "published",
               name: "2021-02-15"
+            },
+            {
+              type: "count",
+              name: "100"
             }
           ]
         }
       ];
     expect(component).toBeTruthy();
   });
+
+  it('should get data',() =>{
+    //component.searchText="boook1";
+    spyOn(component,"onFilter");
+    let inputEl = fixture.debugElement.query(By.css("#book1")).nativeElement;
+    inputEl.click();
+    fixture.detectChanges();
+    expect(component.onFilter).toHaveBeenCalledTimes(1);
+    //console.log( component.booksData.length);
+    //expect(filter).toHaveBeenCalled();
+  });
+  it('shod check local storage',()=>{
+    const data=[
+      {
+        title: "Book",
+        data: [
+          { name: "book1", value: "book1", checked: false },
+          { name: "book2", value: "book2", checked: false },
+          { name: "book3", value: "book3", checked: false },
+          { name: "book4", value: "book4", checked: false },
+          { name: "book5", value: "book5", checked: false },
+          { name: "book6", value: "book6", checked: false }
+        ]
+      },
+      {
+        title: "Author",
+        data: [
+          { name: "Hemanth", value: "Hemanth", checked: false },
+          { name: "Rama", value: "Rama", checked: false },
+          { name: "Krishna", value: "Krishna", checked: false },
+          { name: "Chethan", value: "Chethan", checked: false }
+        ]
+      },
+      {
+        title: "Page Count",
+        data: [{ name: "count", value: "0", checked: false }]
+      },
+      {
+        title: "Published Date",
+        data: [{ name: "published", value: "2021-02-15", checked: false }]
+      }
+    ];
+  
+    localStorage.setItem('filters',JSON.stringify(data));
+    
+    
+  })
 });
 
 

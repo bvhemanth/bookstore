@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksjsonService } from '../services/booksjson.service';
-import { Store, Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { FiltersAction } from '../ngxs/filters/filters.actions';
 interface booksDetails{
   name?;
   profile?
@@ -53,14 +50,9 @@ export class LandingPageComponent implements OnInit {
     }
   ];
 
-  constructor(private books: BooksjsonService,
-    private store:Store) { }
+  constructor(private books: BooksjsonService) { }
 
   ngOnInit(): void {
-    this.store.select(state => state.filters.items).
-    subscribe((data) => {
-      console.log(data);
-    });
     this.booksData=this.books.getData();
     this.cards=this.booksData;
     this.displayCards =this.booksData;
@@ -91,8 +83,6 @@ export class LandingPageComponent implements OnInit {
         }
       }
     }
-    
-    this.store.dispatch(new FiltersAction({filters:this.options}));
     
     if (this.date) {
       checked++;

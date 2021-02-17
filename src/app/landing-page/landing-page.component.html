@@ -2,13 +2,14 @@
     <div class="row">
         <div class="col-md-3">
             <div class="border p-2 shadow rounded mb-5 filters">
-                <input type="search" name="" id="" class="mb-3 rounded" [(ngModel)]="searchText" placeholder="Search">
+                <input type="search" name="" id="search" class="mb-3 rounded" [(ngModel)]="searchText" placeholder="Search">
                 <h4>Filter</h4>
                 <div *ngFor="let option of options">
                     <h5>{{option.title}}</h5>
                     <label *ngFor="let data of option.data" class="d-block w-100">
                         <input *ngIf="data.name!=='published' && data.name!=='count'" type="checkbox"
                         name="options"
+                        [id]=data.name
                         class="mr-2"
                         value="{{data.value}}"
                         [(ngModel)]="data.checked"

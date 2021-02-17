@@ -28,9 +28,14 @@ describe('BookDetailsComponent', () => {
       {
         type: "published",
         name: "2021-02-15"
-      }]
+      },
+      {
+        type: "count",
+        name: "100"
+      }
+    ]
     };
-    fixture.detectChanges();
+    //fixture.detectChanges();
   });
 
   it('should create', () => {
