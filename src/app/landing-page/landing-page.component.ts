@@ -60,13 +60,10 @@ export class LandingPageComponent implements OnInit {
     this.booksData=this.books.getData();
     this.cards=this.booksData;
     this.displayCards =this.booksData;
-    console.log(this.booksData);
     let localState=localStorage.getItem("filters");
     let localDate=localStorage.getItem("date");
     if(localState){
-      console.log(localState)
       this.options=JSON.parse(localState);
-      console.log(this.options);
       this.onFilter()
     }
     if(localDate){

@@ -1,4 +1,10 @@
-.rounded{
-    background-image: linear-gradient(#6da8bb, #4f7cc9, #2d57b3);
+.card{
+    background-image: linear-gradient(#6da8bb, #4f7cc9, #042d4a);
     color: #fff;
+    width:100%;
+    transition: transform .2s;
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 }
