@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksjsonService } from '../services/booksjson.service';
-
+import { Store, Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { FiltersAction } from '../ngxs/filters/filters.actions';
 interface booksDetails{
   name?;
   profile?
@@ -47,13 +49,29 @@ export class LandingPageComponent implements OnInit {
     }
   ];
 
-  constructor(private books: BooksjsonService) { }
+  constructor(private books: BooksjsonService,
+    private store:Store) { }
 
   ngOnInit(): void {
+    this.store.select(state => state.filters.items).
+    subscribe((data) => {
+      console.log(data);
+    });
     this.booksData=this.books.getData();
     this.cards=this.booksData;
     this.displayCards =this.booksData;
     console.log(this.booksData);
+    let localState=localStorage.getItem("filters");
+    let localDate=localStorage.getItem("date");
+    if(localState){
+      console.log(localState)
+      this.options=JSON.parse(localState);
+      console.log(this.options);
+      this.onFilter()
+    }
+    if(localDate){
+      this.date=localDate;
+    }
   }
 
   onFilter() {
@@ -68,15 +86,21 @@ export class LandingPageComponent implements OnInit {
         }
       }
     }
+    
+    this.store.dispatch(new FiltersAction({filters:this.options}));
+    
     if (this.date) {
       checked++;
       data.push(this.date);
     }
     if(checked)
     {
+      localStorage.setItem("filters",JSON.stringify(this.options));
+      localStorage.setItem("date", this.date);
       this.displayCards =  this.onFilterprocess(data)
     }
     else{
+      localStorage.clear();
       this.displayCards = this.cards;
     }
   }

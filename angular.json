@@ -127,6 +127,7 @@
   },
   "defaultProject": "bookstore",
   "cli": {
-    "analytics": "ac520464-d412-4425-ad29-8a1fd13521e1"
+    "analytics": "ac520464-d412-4425-ad29-8a1fd13521e1",
+    "defaultCollection": "@ngxs/schematics"
   }
 }
